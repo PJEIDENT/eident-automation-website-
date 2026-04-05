@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eident Automation — AI Automations for Small Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg2: #f8fafc;
+  --bg3: #f1f5f9;
+  --dark: #0a0f1e;
+  --dark2: #0f172a;
+  --dark3: #1e293b;
+  --text: #0f172a;
+  --muted: #64748b;
+  --muted2: #94a3b8;
+  --blue: #2563eb;
+  --blue2: #1d4ed8;
+  --blue-light: #eff6ff;
+  --blue-mid: #dbeafe;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --border: #e2e8f0;
+  --border2: #cbd5e1;
+  --radius: 4px;
+  --radius2: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: white;
+  letter-spacing: -0.5px;
+}
+
+.nav-logo-text {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); letter-spacing: -0.3px;
+}
+
+.nav-logo-text span { color: var(--blue); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--dark);
+  color: white !important;
+  padding: 8px 18px;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.01em;
+  transition: background 0.15s !important;
+}
+
+.nav-cta:hover { background: var(--dark3) !important; color: white !important; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
+  padding: 100px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(37,99,235,0.3);
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  margin-bottom: 24px;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%,100% { opacity:1; }
+  50% { opacity:0.4; }
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.hero h1 .accent { color: #3b82f6; }
+.hero h1 .line-break { display: block; }
+
+.hero-sub {
+  font-size: 17px;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  font-weight: 400;
+  max-width: 440px;
+}
+
+.hero-sub strong { color: #e2e8f0; font-weight: 600; }
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: white;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: -0.2px;
+}
+
+.btn-primary:hover { background: var(--blue2); transform: translateY(-1px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #94a3b8;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.15s;
+}
+
+.btn-secondary:hover { color: white; border-color: rgba(255,255,255,0.25); }
+
+/* Terminal widget */
+.hero-terminal {
+  background: #0d1117;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  background: #161b22;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.t-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.t-dot.red { background: #ff5f57; }
+.t-dot.yellow { background: #febc2e; }
+.t-dot.green { background: #28c840; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: #484f58;
+  letter-spacing: 0.05em;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+.t-line { display: flex; gap: 10px; }
+.t-prompt { color: #3b82f6; flex-shrink: 0; }
+.t-cmd { color: #e2e8f0; }
+.t-out { color: #4ade80; padding-left: 20px; }
+.t-out.muted { color: #64748b; }
+.t-cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: #3b82f6;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50% { opacity:0; }
+}
+
+.t-comment { color: #484f58; }
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 40px;
+}
+
+.trust-bar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trust-num {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.trust-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.trust-divider {
+  width: 1px; height: 32px;
+  background: var(--border2);
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding: 88px 40px;
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── SERVICES ── */
+.services { background: var(--bg); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 56px;
+}
+
+.service-card {
+  background: var(--bg);
+  padding: 36px 32px;
+  position: relative;
+  transition: background 0.15s;
+}
+
+.service-card:hover { background: var(--bg2); }
+
+.service-card.featured {
+  background: var(--dark);
+}
+
+.service-card.featured:hover { background: var(--dark3); }
+
+.service-icon {
+  width: 44px; height: 44px;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.service-card.featured .service-icon {
+  background: rgba(37,99,235,0.15);
+  border-color: rgba(37,99,235,0.3);
+}
+
+.service-price {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.service-card.featured .service-price { color: #60a5fa; }
+
+.service-name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.service-card.featured .service-name { color: white; }
+
+.service-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card.featured .service-desc { color: #94a3b8; }
+
+.service-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-features li {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.service-features li::before {
+  content: '→';
+  color: var(--blue);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.service-card.featured .service-features li { color: #94a3b8; }
+.service-card.featured .service-features li::before { color: #60a5fa; }
+
+.service-anchor {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--blue);
+  padding: 3px 8px;
+}
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--bg2); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.step {
+  background: var(--bg);
+  padding: 36px 28px;
+  position: relative;
+}
+
+.step-num {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--border2);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.step-connector {
+  position: absolute;
+  top: 50px; right: -14px;
+  width: 28px; height: 28px;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+/* ── DEMOS ── */
+.demos { background: var(--bg); }
+
+.demos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 56px;
+}
+
+.demo-card {
+  background: var(--bg);
+  padding: 28px 24px;
+  transition: background 0.15s;
+}
+
+.demo-card:hover { background: var(--bg2); }
+
+.demo-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-light);
+  border: 1px solid #bbf7d0;
+  padding: 3px 8px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.demo-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.demo-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.demo-video-placeholder {
+  background: var(--dark);
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-video-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,0.1), transparent);
+}
+
+.play-btn {
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.play-btn:hover { background: var(--blue); border-color: var(--blue); }
+
+.demo-label {
+  position: absolute;
+  bottom: 10px; left: 10px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+/* ── WHY ── */
+.why { background: var(--dark); }
+
+.why .section-label { color: #60a5fa; }
+.why .section-title { color: white; }
+.why .section-sub { color: #94a3b8; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-top: 56px;
+}
+
+.why-card {
+  background: var(--dark);
+  padding: 32px 28px;
+  transition: background 0.15s;
+}
+
+.why-card:hover { background: var(--dark3); }
+
+.why-num {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--blue);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.why-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.why-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* ── TESTIMONIAL ── */
+.testimonial {
+  background: var(--blue);
+  padding: 80px 40px;
+}
+
+.testimonial-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-mark {
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.2);
+  line-height: 0.8;
+  margin-bottom: 24px;
+  font-family: Georgia, serif;
+}
+
+.quote-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.55;
+  letter-spacing: -0.3px;
+  margin-bottom: 28px;
+}
+
+.quote-author {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.quote-placeholder {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  border: 1px dashed rgba(255,255,255,0.2);
+  padding: 40px;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--bg2);
+  padding: 88px 40px;
+  text-align: center;
+}
+
+.cta-inner { max-width: 600px; margin: 0 auto; }
+
+.cta-section .section-title { margin-bottom: 12px; }
+.cta-section .section-sub { margin: 0 auto 36px; text-align: center; }
+
+.cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-note {
+  font-size: 12px;
+  color: var(--muted2);
+  margin-top: 14px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 48px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-mark {
+  width: 28px; height: 28px;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: white;
+}
+
+.footer-logo-text {
+  font-size: 14px; font-weight: 700;
+  color: white;
+}
+
+.footer-links {
+  display: flex; gap: 24px; list-style: none;
+}
+
+.footer-links a {
+  font-size: 13px; color: #475569; text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: #94a3b8; }
+
+.footer-copy {
+  font-size: 12px;
+  color: #334155;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 60px 20px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero-terminal { display: none; }
+  section { padding: 56px 20px; }
+  .services-grid, .steps, .demos-grid, .why-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 28px; }
+  .step-connector { display: none; }
+  .trust-bar { padding: 16px 20px; }
+  .trust-bar-inner { gap: 16px; }
+  .trust-divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">EA</div>
+    <span class="nav-logo-text">Eident <span>Automation</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#book" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Chicago Area · AI Automation Consulting
+      </div>
+      <h1>
+        Stop doing<br>
+        work that <span class="accent">AI</span><br>
+        can handle.
+      </h1>
+      <p class="hero-sub">
+        We build <strong>custom AI automations</strong> for small businesses — lead follow-up, document generation, email agents, and more. Built with Claude Code, not just drag-and-drop tools.
+      </p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-primary">Book a Free Discovery Call →</a>
+        <a href="#demos" class="btn-secondary">See Live Demos</a>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <div class="t-dot red"></div>
+        <div class="t-dot yellow"></div>
+        <div class="t-dot green"></div>
+        <div class="terminal-title">lead-responder.js — running</div>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">node lead-responder.js</span></div>
+        <div class="t-line"><span class="t-out muted">// New lead received from website form</span></div>
+        <div class="t-line"><span class="t-out">✓ Lead captured: Mike Johnson</span></div>
+        <div class="t-line"><span class="t-out">✓ Business context analyzed</span></div>
+        <div class="t-line"><span class="t-out">✓ Personalized reply generated</span></div>
+        <div class="t-line"><span class="t-out">✓ Email sent in 4.2 seconds</span></div>
+        <div class="t-line" style="margin-top:8px"><span class="t-prompt">$</span><span class="t-cmd">uptime</span></div>
+        <div class="t-line"><span class="t-out">Running 24/7 · 0 manual steps</span></div>
+        <div class="t-line" style="margin-top:8px"><span class="t-prompt">$</span><span class="t-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-num">10+</div>
+      <div class="trust-label">Hours saved<br>per client per week</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">60s</div>
+      <div class="trust-label">Average lead<br>response time</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">3x</div>
+      <div class="trust-label">ROI within<br>first month</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">100%</div>
+      <div class="trust-label">Custom builds —<br>no generic templates</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">48hr</div>
+      <div class="trust-label">Delivery on<br>starter builds</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">Four ways to work<br>with Eident Automation</h2>
+    <p class="section-sub">From a quick audit to a full AI agent — there's an entry point for every stage of your business.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-price">Starting at $197</div>
+        <div class="service-name">Automation Audit</div>
+        <div class="service-desc">45-min Zoom call + written report mapping your top 5 automation opportunities with estimated hours saved and build costs.</div>
+        <ul class="service-features">
+          <li>45-min discovery call</li>
+          <li>Written Notion report</li>
+          <li>Top 5 opportunities ranked by ROI</li>
+          <li>Tool recommendations included</li>
+          <li>$197 credits toward any build</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-price">$750 — $1,500</div>
+        <div class="service-name">Starter Build</div>
+        <div class="service-desc">One complete automation — lead capture, appointment follow-up, document generation, or content scheduling. Delivered with Loom walkthrough and documentation.</div>
+        <ul class="service-features">
+          <li>One focused automation</li>
+          <li>Make.com or Claude Code — your choice</li>
+          <li>Deployed and live</li>
+          <li>Loom video + written docs</li>
+          <li>2 weeks of support</li>
+        </ul>
+      </div>
+
+      <div class="service-card featured">
+        <div class="service-anchor">Most Popular</div>
+        <div class="service-icon">🤖</div>
+        <div class="service-price">$2,000 — $4,000</div>
+        <div class="service-name">AI Agent Build</div>
+        <div class="service-desc">A custom AI agent connected to your actual tools via MCP. It reads, decides, acts, and reports — without you touching it.</div>
+        <ul class="service-features">
+          <li>Full AI agent with real tool access</li>
+          <li>Connects to your systems</li>
+          <li>Makes decisions autonomously</li>
+          <li>Full documentation + training call</li>
+          <li>30 days post-delivery support</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <div class="service-price">$1,000 — $2,500 / mo</div>
+        <div class="service-name">Monthly Retainer</div>
+        <div class="service-desc">Ongoing automation builds, maintenance, and strategy. New workflows added every month. Direct Slack access and a monthly strategy call.</div>
+        <ul class="service-features">
+          <li>New automations every month</li>
+          <li>Maintenance and monitoring</li>
+          <li>Monthly strategy call</li>
+          <li>Direct Slack access</li>
+          <li>Priority turnaround</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">From first call to<br>automation running live</h2>
+    <p class="section-sub">Most clients go from discovery call to a live automation in under two weeks.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Discovery Call</h3>
+        <p class="step-desc">20 minutes. You walk us through your business and tell us what's eating your time. We ask the right questions and tell you honestly if automation can help — and what it would cost.</p>
+        <div class="step-connector">→</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Scoped & Built</h3>
+        <p class="step-desc">We scope exactly what needs to be built, send you a proposal within 24 hours, and get started the day you pay the deposit. You get updates — no radio silence.</p>
+        <div class="step-connector">→</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Delivered & Running</h3>
+        <p class="step-desc">You get a Loom walkthrough of the live automation, full written documentation, and weeks of support. Most clients pitch a retainer after the first build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section class="demos" id="demos">
+  <div class="section-inner">
+    <div class="section-label">Live Demos</div>
+    <h2 class="section-title">See what we build —<br>before you spend a dollar</h2>
+    <p class="section-sub">Every demo below is a real, working automation — not a mockup. Watch how it works, then imagine it running in your business.</p>
+
+    <div class="demos-grid">
+      <div class="demo-card">
+        <div class="demo-tag">Live Demo</div>
+        <h3 class="demo-title">AI Lead Responder</h3>
+        <p class="demo-desc">New form submission comes in → Claude reads it → personalized reply sent in under 60 seconds. Works 24/7 while you sleep.</p>
+        <div class="demo-video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="demo-label">Loom demo — coming soon</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-tag">Live Demo</div>
+        <h3 class="demo-title">AI Doc Generator</h3>
+        <p class="demo-desc">Fill out a short intake form → Claude generates a complete, formatted proposal or contract in seconds. Eliminate hours of document prep.</p>
+        <div class="demo-video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="demo-label">Loom demo — coming soon</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-tag">Live Demo</div>
+        <h3 class="demo-title">AI Email Agent</h3>
+        <p class="demo-desc">AI reads your inbox, categorizes emails, drafts replies, and sends — all without you touching it. Built with Claude Code + MCP tools.</p>
+        <div class="demo-video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="demo-label">Loom demo — coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="section-inner">
+    <div class="section-label">Why Eident Automation</div>
+    <h2 class="section-title">This isn't Zapier.<br>This is different.</h2>
+    <p class="section-sub">Most automation "consultants" connect your apps in a drag-and-drop tool. We build with Claude Code and MCP — which means your automation can actually think.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3 class="why-title">Custom-built, not templated</h3>
+        <p class="why-desc">Every automation is written specifically for your workflow. Not a generic Make.com template repurposed from someone else's business.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3 class="why-title">AI that actually reasons</h3>
+        <p class="why-desc">Claude Code lets me build automations that read context, make decisions, and handle exceptions — not just trigger-action chains that break on edge cases.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3 class="why-title">You own everything</h3>
+        <p class="why-desc">Full source code, written documentation, and a Loom walkthrough with every delivery. You're never dependent on me to keep the lights on.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3 class="why-title">Priced on ROI</h3>
+        <p class="why-desc">If you're saving 10 hours/week at $75/hr value — that's $750/week. My builds pay for themselves in weeks, not months.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <h3 class="why-title">Local, accountable</h3>
+        <p class="why-desc">Chicago area, not an overseas agency. We answer messages same day. You're not a ticket number in a queue.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <h3 class="why-title">Flat pricing, no surprises</h3>
+        <p class="why-desc">Fixed project prices — not hourly billing that spirals. You know exactly what you're paying before we start building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <div class="quote-placeholder">
+      Testimonial coming soon — delivering first free project this week.<br>
+      <em style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:8px;display:block;">Replace this section after collecting your first written review.</em>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book">
+  <div class="cta-inner">
+    <div class="section-label" style="text-align:center">Get Started</div>
+    <h2 class="section-title">Book a free<br>20-minute call</h2>
+    <p class="section-sub">Tell us what's eating your time. We'll tell you honestly if automation can fix it — and what it would take.</p>
+    <div class="cta-group">
+      <a href="#" class="btn-primary" style="font-size:16px; padding:16px 32px;">Book Discovery Call →</a>
+    </div>
+    <p class="cta-note">No commitment. No sales pitch. Just an honest conversation.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-mark">EA</div>
+      <span class="footer-logo-text">Eident Automation</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#demos">Demos</a></li>
+      <li><a href="#book">Book a Call</a></li>
+      <li><a href="mailto:pj@eident.net">pj@eident.net</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Eident Automation · Chicago, IL</span>
+  </div>
+</footer>
+
+<script>
+// Animate trust bar numbers on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .step, .demo-card, .why-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
