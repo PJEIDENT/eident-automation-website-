@@ -104,17 +104,41 @@ nav {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 480px;
+  grid-template-columns: 1fr 480px 480px;
   gap: 0;
   min-height: 540px;
 }
 
 .hero-left {
-  padding: 72px 60px 72px 0;
+  padding: 72px 48px 72px 0;
   border-right: var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.hero-orb {
+  border-right: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--off);
+  padding: 40px;
+}
+
+.hero-orb svg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transform-origin: center center;
+  animation: orbSpin 24s linear infinite;
+}
+
+@keyframes orbSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .hero-badge {
@@ -210,30 +234,8 @@ h1 .accent { color: var(--accent); }
   display: flex;
   align-items: center;
   background: var(--off);
-  position: relative;
-  overflow: hidden;
 }
 
-.orb-container {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  animation: orbSpin 24s linear infinite;
-}
-
-.orb-svg {
-  width: 100%;
-  height: 100%;
-}
-
-@keyframes orbSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 .terminal-wrap {
   width: 100%;
@@ -829,43 +831,36 @@ footer {
       </div>
     </div>
 
+    <div class="hero-orb">
+      <svg class="orb-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FF3300" stop-opacity="0.12"/>
+            <stop offset="60%" stop-color="#FF3300" stop-opacity="0.03"/>
+            <stop offset="100%" stop-color="#FF3300" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="200" cy="200" r="180" fill="url(#orbGlow)"/>
+        <circle cx="200" cy="200" r="155" fill="none" stroke="#FF3300" stroke-width="0.8" stroke-opacity="0.5" filter="url(#glow)"/>
+        <ellipse cx="200" cy="200" rx="155" ry="48" fill="none" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
+        <ellipse cx="200" cy="200" rx="48" ry="155" fill="none" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
+        <ellipse cx="200" cy="200" rx="155" ry="80" fill="none" stroke="#FF3300" stroke-width="0.4" stroke-opacity="0.25" transform="rotate(45 200 200)"/>
+        <ellipse cx="200" cy="200" rx="155" ry="80" fill="none" stroke="#FF3300" stroke-width="0.4" stroke-opacity="0.25" transform="rotate(-45 200 200)"/>
+        <circle cx="200" cy="200" r="90" fill="none" stroke="#FF3300" stroke-width="0.5" stroke-opacity="0.3"/>
+        <circle cx="200" cy="200" r="4" fill="#FF3300" fill-opacity="0.8" filter="url(#glow)"/>
+        <line x1="200" y1="45" x2="185" y2="75" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
+        <line x1="340" y1="130" x2="315" y2="148" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
+        <line x1="355" y1="200" x2="320" y2="200" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
+        <line x1="60" y1="270" x2="90" y2="255" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
+        <line x1="200" y1="355" x2="215" y2="325" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
+      </svg>
+    </div>
+
     <div class="hero-terminal">
-      <div class="orb-container">
-        <svg class="orb-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FF3300" stop-opacity="0.15"/>
-              <stop offset="60%" stop-color="#FF3300" stop-opacity="0.04"/>
-              <stop offset="100%" stop-color="#FF3300" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <!-- Glow core -->
-          <circle cx="200" cy="200" r="180" fill="url(#orbGlow)"/>
-          <!-- Main sphere outline -->
-          <circle cx="200" cy="200" r="155" fill="none" stroke="#FF3300" stroke-width="0.8" stroke-opacity="0.5" filter="url(#glow)"/>
-          <!-- Equator -->
-          <ellipse cx="200" cy="200" rx="155" ry="48" fill="none" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
-          <!-- Vertical meridian -->
-          <ellipse cx="200" cy="200" rx="48" ry="155" fill="none" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
-          <!-- Diagonal arcs -->
-          <ellipse cx="200" cy="200" rx="155" ry="80" fill="none" stroke="#FF3300" stroke-width="0.4" stroke-opacity="0.25" transform="rotate(45 200 200)"/>
-          <ellipse cx="200" cy="200" rx="155" ry="80" fill="none" stroke="#FF3300" stroke-width="0.4" stroke-opacity="0.25" transform="rotate(-45 200 200)"/>
-          <!-- Inner ring -->
-          <circle cx="200" cy="200" r="90" fill="none" stroke="#FF3300" stroke-width="0.5" stroke-opacity="0.3"/>
-          <!-- Core dot -->
-          <circle cx="200" cy="200" r="4" fill="#FF3300" fill-opacity="0.8" filter="url(#glow)"/>
-          <!-- Spark lines -->
-          <line x1="200" y1="45" x2="185" y2="75" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
-          <line x1="340" y1="130" x2="315" y2="148" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
-          <line x1="355" y1="200" x2="320" y2="200" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.5"/>
-          <line x1="60" y1="270" x2="90" y2="255" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
-          <line x1="200" y1="355" x2="215" y2="325" stroke="#FF3300" stroke-width="0.6" stroke-opacity="0.4"/>
-        </svg>
-      </div>
       <div class="terminal-wrap">
         <div class="terminal-bar">
           <div class="t-dot red"></div>
