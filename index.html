@@ -1028,10 +1028,10 @@ footer {
         <div class="demo-tag">Live Demo</div>
         <h3 class="demo-title">AI Doc Generator</h3>
         <p class="demo-desc">Fill out a short intake form → Claude generates a complete, formatted proposal and emails it as a PDF in under 30 seconds. Eliminate hours of document prep.</p>
-        <a href="https://solvaro-doc-generator-production.up.railway.app/test" target="_blank" class="demo-video-placeholder" style="text-decoration:none;">
+        <div class="demo-video-placeholder">
           <div class="play-btn">▶</div>
-          <div class="demo-label">Try it live — generates a real PDF</div>
-        </a>
+          <div class="demo-label">Try the live demo below ↓</div>
+        </div>
       </div>
       <div class="demo-card">
         <div class="demo-tag">Coming Soon</div>
@@ -1084,6 +1084,54 @@ footer {
         <h3 class="why-title">Flat pricing, no surprises</h3>
         <p class="why-desc">Fixed project prices — not hourly billing that spirals. You know exactly what you're paying before we start building.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSAL GENERATOR -->
+<section class="cta-section" id="proposal-demo">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="section-label">Live Demo — AI Doc Generator</div>
+      <h2 class="section-title">Get a real proposal.<br>In 30 seconds.</h2>
+      <p>Fill out the form and watch Claude write a custom automation proposal for your business — formatted and emailed to you as a PDF. No templates. No fluff.</p>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted);">This is the same system we build for clients. You're watching it work right now.</p>
+    </div>
+    <div class="cta-right">
+      <form id="proposalForm">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input name="name" type="text" placeholder="Sarah Williams" required />
+        </div>
+        <div class="form-field">
+          <label>Your Email</label>
+          <input name="email" type="email" placeholder="sarah@example.com" required />
+        </div>
+        <div class="form-field">
+          <label>Your Business Name</label>
+          <input name="business" type="text" placeholder="Williams Property Group" required />
+        </div>
+        <div class="form-field">
+          <label>What industry are you in?</label>
+          <input name="industry" type="text" placeholder="Real estate, HVAC, law firm..." required />
+        </div>
+        <div class="form-field">
+          <label>What do you need automated?</label>
+          <textarea name="problem" placeholder="We manually follow up with every lead by email. It takes hours..." required></textarea>
+        </div>
+        <div class="form-field">
+          <label>Estimated monthly budget</label>
+          <select name="budget" style="width:100%;background:var(--off);border:var(--border);color:var(--black);padding:10px 14px;font-size:14px;font-family:inherit;outline:none;">
+            <option value="under $500">Under $500/mo</option>
+            <option value="$500–$1,000" selected>$500–$1,000/mo</option>
+            <option value="$1,000–$2,500">$1,000–$2,500/mo</option>
+            <option value="$2,500+">$2,500+/mo</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:13px;padding:16px;" id="proposalBtn">Generate My Proposal →</button>
+        <div id="proposalResult"></div>
+      </form>
+      <p class="cta-note">A real PDF proposal lands in your inbox. No commitment required.</p>
     </div>
   </div>
 </section>
@@ -1165,6 +1213,41 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
     result.textContent = 'Connection error — email us at pj@eident.net';
   }
   btn.textContent = 'Send — Get an AI Reply in 60 Seconds →';
+  btn.disabled = false;
+});
+
+document.getElementById('proposalForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('proposalBtn');
+  const result = document.getElementById('proposalResult');
+  btn.textContent = 'Generating proposal...';
+  btn.disabled = true;
+  const data = Object.fromEntries(new FormData(e.target));
+  try {
+    const res = await fetch('https://solvaro-doc-generator-production.up.railway.app/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    result.style.cssText = 'display:block;margin-top:16px;padding:14px;font-size:13px;border:var(--border);';
+    if (res.ok) {
+      result.style.background = '#f0fdf4';
+      result.style.borderColor = '#16a34a';
+      result.style.color = '#15803d';
+      result.textContent = '✓ Proposal sent to ' + data.email + ' — check your inbox (and Promotions tab).';
+      e.target.reset();
+    } else {
+      result.style.background = '#fef2f2';
+      result.style.borderColor = '#dc2626';
+      result.style.color = '#dc2626';
+      result.textContent = 'Something went wrong — email us at pj@solvaro.net';
+    }
+  } catch(err) {
+    result.style.cssText = 'display:block;margin-top:16px;padding:14px;font-size:13px;border:var(--border);background:#fef2f2;border-color:#dc2626;color:#dc2626;';
+    result.textContent = 'Connection error — email us at pj@solvaro.net';
+  }
+  btn.textContent = 'Generate My Proposal →';
   btn.disabled = false;
 });
 </script>
