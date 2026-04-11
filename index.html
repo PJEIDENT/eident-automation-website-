@@ -844,9 +844,20 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-mark">SA</div>
-    <span class="nav-logo-text">Solvaro AI</span>
+  <a href="#" class="nav-logo" style="gap:12px;">
+    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="14" fill="#FF3300"/>
+      <circle cx="50" cy="50" r="5" fill="white"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none" transform="rotate(60 50 50)"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none" transform="rotate(-60 50 50)"/>
+      <circle cx="50" cy="12" r="4" fill="#FF3300" opacity="0.5"/>
+      <circle cx="79" cy="80" r="3" fill="#FF3300" opacity="0.4"/>
+    </svg>
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;color:#FF3300;letter-spacing:0.02em;">solvaro</span>
+      <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#FF3300;opacity:0.7;">AI Automation</span>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -1063,28 +1074,18 @@ footer {
         <div class="demo-tag">Live Demo</div>
         <h3 class="demo-title">AI Lead Responder</h3>
         <p class="demo-desc">New form submission comes in → Claude reads it → personalized reply sent in under 60 seconds. Works 24/7 while you sleep.</p>
-        <div class="demo-video-placeholder">
-          <div class="play-btn">▶</div>
-          <div class="demo-label">Loom demo — coming soon</div>
-        </div>
+        <a href="https://eident-lead-responder-production.up.railway.app/test" target="_blank" class="btn-secondary" style="margin-top:24px;display:inline-block;">Try It Live →</a>
       </div>
       <div class="demo-card">
         <div class="demo-tag">Live Demo</div>
         <h3 class="demo-title">AI Doc Generator</h3>
         <p class="demo-desc">Fill out a short intake form → Claude generates a complete, formatted proposal and emails it as a PDF in under 30 seconds. Eliminate hours of document prep.</p>
-        <div class="demo-video-placeholder">
-          <div class="play-btn">▶</div>
-          <div class="demo-label">Try the live demo below ↓</div>
-        </div>
+        <a href="https://solvaro-doc-generator-production.up.railway.app/test" target="_blank" class="btn-secondary" style="margin-top:24px;display:inline-block;">Try It Live →</a>
       </div>
       <div class="demo-card">
         <div class="demo-tag">Coming Soon</div>
         <h3 class="demo-title">AI Email Agent</h3>
         <p class="demo-desc">AI reads your inbox, categorizes emails, drafts replies, and sends — all without you touching it. Built with Claude Code + MCP tools.</p>
-        <div class="demo-video-placeholder">
-          <div class="play-btn">▶</div>
-          <div class="demo-label">Loom demo — coming soon</div>
-        </div>
       </div>
     </div>
   </div>
@@ -1128,54 +1129,6 @@ footer {
         <h3 class="why-title">Flat pricing, no surprises</h3>
         <p class="why-desc">Fixed project prices — not hourly billing that spirals. You know exactly what you're paying before we start building.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROPOSAL GENERATOR -->
-<section class="proposal-section" id="proposal-demo">
-  <div class="proposal-inner">
-    <div class="proposal-left">
-      <div class="section-label" style="color:var(--accent);">Live Demo — AI Doc Generator</div>
-      <h2 class="section-title" style="color:var(--white);">Get a real proposal.<br>In 30 seconds.</h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;">Fill out the form and watch Claude write a custom automation proposal for your business — formatted and emailed to you as a PDF.</p>
-      <p style="margin-top:20px;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);">This is the same system we build for clients.</p>
-    </div>
-    <div class="proposal-right">
-      <form id="proposalForm">
-        <div class="form-field">
-          <label>Your Name</label>
-          <input name="name" type="text" placeholder="Sarah Williams" required />
-        </div>
-        <div class="form-field">
-          <label>Your Email</label>
-          <input name="email" type="email" placeholder="sarah@example.com" required />
-        </div>
-        <div class="form-field">
-          <label>Your Business Name</label>
-          <input name="business" type="text" placeholder="Williams Property Group" required />
-        </div>
-        <div class="form-field">
-          <label>What industry are you in?</label>
-          <input name="industry" type="text" placeholder="Real estate, HVAC, law firm..." required />
-        </div>
-        <div class="form-field">
-          <label>What do you need automated?</label>
-          <textarea name="problem" placeholder="We manually follow up with every lead by email. It takes hours..." required></textarea>
-        </div>
-        <div class="form-field">
-          <label>Estimated monthly budget</label>
-          <select name="budget" class="proposal-select">
-            <option value="under $500">Under $500/mo</option>
-            <option value="$500–$1,000" selected>$500–$1,000/mo</option>
-            <option value="$1,000–$2,500">$1,000–$2,500/mo</option>
-            <option value="$2,500+">$2,500+/mo</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;font-size:13px;padding:16px;" id="proposalBtn">Generate My Proposal →</button>
-        <div id="proposalResult"></div>
-      </form>
-      <p class="cta-note">A real PDF lands in your inbox. No commitment required.</p>
     </div>
   </div>
 </section>
@@ -1260,47 +1213,21 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
   btn.disabled = false;
 });
 
-document.getElementById('proposalForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById('proposalBtn');
-  const result = document.getElementById('proposalResult');
-  btn.textContent = 'Generating proposal...';
-  btn.disabled = true;
-  const data = Object.fromEntries(new FormData(e.target));
-  try {
-    const res = await fetch('https://solvaro-doc-generator-production.up.railway.app/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const json = await res.json();
-    result.style.cssText = 'display:block;margin-top:16px;padding:14px;font-size:13px;border:var(--border);';
-    if (res.ok) {
-      result.style.background = '#f0fdf4';
-      result.style.borderColor = '#16a34a';
-      result.style.color = '#15803d';
-      result.textContent = '✓ Proposal sent to ' + data.email + ' — check your inbox (and Promotions tab).';
-      e.target.reset();
-    } else {
-      result.style.background = '#fef2f2';
-      result.style.borderColor = '#dc2626';
-      result.style.color = '#dc2626';
-      result.textContent = 'Something went wrong — email us at pj@solvaro.net';
-    }
-  } catch(err) {
-    result.style.cssText = 'display:block;margin-top:16px;padding:14px;font-size:13px;border:var(--border);background:#fef2f2;border-color:#dc2626;color:#dc2626;';
-    result.textContent = 'Connection error — email us at pj@solvaro.net';
-  }
-  btn.textContent = 'Generate My Proposal →';
-  btn.disabled = false;
-});
 </script>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <div class="footer-logo-mark">SA</div>
-    <span class="footer-logo-text">Solvaro AI</span>
+  <div class="footer-logo" style="gap:10px;">
+    <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="14" fill="#FF3300"/>
+      <circle cx="50" cy="50" r="5" fill="white"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none" transform="rotate(60 50 50)"/>
+      <ellipse cx="50" cy="50" rx="38" ry="15" stroke="#FF3300" stroke-width="5" fill="none" transform="rotate(-60 50 50)"/>
+      <circle cx="50" cy="12" r="4" fill="#FF3300" opacity="0.5"/>
+      <circle cx="79" cy="80" r="3" fill="#FF3300" opacity="0.4"/>
+    </svg>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;color:#FF3300;letter-spacing:0.02em;">solvaro</span>
   </div>
   <ul class="footer-links">
     <li><a href="#services">Services</a></li>
