@@ -611,6 +611,50 @@ h1 .accent { color: var(--accent); }
   font-style: italic;
 }
 
+/* ── PROPOSAL SECTION ── */
+.proposal-section {
+  border-bottom: var(--border);
+}
+
+.proposal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 600px;
+}
+
+.proposal-left {
+  background: var(--black);
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1.5px solid #222;
+}
+
+.proposal-right {
+  padding: 80px 60px;
+  background: var(--off);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.proposal-select {
+  width: 100%;
+  background: var(--white);
+  border: var(--border);
+  color: var(--black);
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.proposal-select:focus { border-color: var(--accent); }
+
 /* ── CTA ── */
 .cta-section {
   border-bottom: var(--border);
@@ -1089,15 +1133,15 @@ footer {
 </section>
 
 <!-- PROPOSAL GENERATOR -->
-<section class="cta-section" id="proposal-demo">
-  <div class="cta-inner">
-    <div class="cta-left">
-      <div class="section-label">Live Demo — AI Doc Generator</div>
-      <h2 class="section-title">Get a real proposal.<br>In 30 seconds.</h2>
-      <p>Fill out the form and watch Claude write a custom automation proposal for your business — formatted and emailed to you as a PDF. No templates. No fluff.</p>
-      <p style="margin-top:16px;font-size:13px;color:var(--muted);">This is the same system we build for clients. You're watching it work right now.</p>
+<section class="proposal-section" id="proposal-demo">
+  <div class="proposal-inner">
+    <div class="proposal-left">
+      <div class="section-label" style="color:var(--accent);">Live Demo — AI Doc Generator</div>
+      <h2 class="section-title" style="color:var(--white);">Get a real proposal.<br>In 30 seconds.</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;">Fill out the form and watch Claude write a custom automation proposal for your business — formatted and emailed to you as a PDF.</p>
+      <p style="margin-top:20px;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);">This is the same system we build for clients.</p>
     </div>
-    <div class="cta-right">
+    <div class="proposal-right">
       <form id="proposalForm">
         <div class="form-field">
           <label>Your Name</label>
@@ -1121,7 +1165,7 @@ footer {
         </div>
         <div class="form-field">
           <label>Estimated monthly budget</label>
-          <select name="budget" style="width:100%;background:var(--off);border:var(--border);color:var(--black);padding:10px 14px;font-size:14px;font-family:inherit;outline:none;">
+          <select name="budget" class="proposal-select">
             <option value="under $500">Under $500/mo</option>
             <option value="$500–$1,000" selected>$500–$1,000/mo</option>
             <option value="$1,000–$2,500">$1,000–$2,500/mo</option>
@@ -1131,7 +1175,7 @@ footer {
         <button type="submit" class="btn-primary" style="width:100%;font-size:13px;padding:16px;" id="proposalBtn">Generate My Proposal →</button>
         <div id="proposalResult"></div>
       </form>
-      <p class="cta-note">A real PDF proposal lands in your inbox. No commitment required.</p>
+      <p class="cta-note">A real PDF lands in your inbox. No commitment required.</p>
     </div>
   </div>
 </section>
